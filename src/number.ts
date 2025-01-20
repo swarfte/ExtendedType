@@ -1,4 +1,4 @@
-class Integer extends Number {
+export class Integer extends Number {
   constructor(value: number) {
     super(value);
     if (value % 1 !== 0) {
@@ -7,7 +7,7 @@ class Integer extends Number {
   }
 }
 
-class Float extends Number {
+export class Float extends Number {
   constructor(value: number) {
     super(value);
     if (value % 1 === 0) {
@@ -16,7 +16,7 @@ class Float extends Number {
   }
 }
 
-class PositiveNumber extends Number {
+export class PositiveNumber extends Number {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -25,7 +25,7 @@ class PositiveNumber extends Number {
   }
 }
 
-class NegativeNumber extends Number {
+export class NegativeNumber extends Number {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -34,7 +34,7 @@ class NegativeNumber extends Number {
   }
 }
 
-class PositiveInteger extends Integer {
+export class PositiveInteger extends Integer {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -43,7 +43,7 @@ class PositiveInteger extends Integer {
   }
 }
 
-class NegativeInteger extends Integer {
+export class NegativeInteger extends Integer {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -52,7 +52,7 @@ class NegativeInteger extends Integer {
   }
 }
 
-class PositiveFloat extends Float {
+export class PositiveFloat extends Float {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -61,7 +61,7 @@ class PositiveFloat extends Float {
   }
 }
 
-class NegativeFloat extends Float {
+export class NegativeFloat extends Float {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -70,7 +70,7 @@ class NegativeFloat extends Float {
   }
 }
 
-class Zero extends Number {
+export class Zero extends Number {
   constructor(value: number) {
     super(value);
     if (value !== 0) {
@@ -79,7 +79,7 @@ class Zero extends Number {
   }
 }
 
-class NonZero extends Number {
+export class NonZero extends Number {
   constructor(value: number) {
     super(value);
     if (value === 0) {
@@ -88,7 +88,7 @@ class NonZero extends Number {
   }
 }
 
-class NonPositive extends Number {
+export class NonPositive extends Number {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -97,7 +97,7 @@ class NonPositive extends Number {
   }
 }
 
-class NonNegative extends Number {
+export class NonNegative extends Number {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -106,7 +106,7 @@ class NonNegative extends Number {
   }
 }
 
-class NonZeroInteger extends Integer {
+export class NonZeroInteger extends Integer {
   constructor(value: number) {
     super(value);
     if (value === 0) {
@@ -115,7 +115,7 @@ class NonZeroInteger extends Integer {
   }
 }
 
-class NonPositiveInteger extends Integer {
+export class NonPositiveInteger extends Integer {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -124,7 +124,7 @@ class NonPositiveInteger extends Integer {
   }
 }
 
-class NonNegativeInteger extends Integer {
+export class NonNegativeInteger extends Integer {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -133,7 +133,7 @@ class NonNegativeInteger extends Integer {
   }
 }
 
-class NonZeroFloat extends Float {
+export class NonZeroFloat extends Float {
   constructor(value: number) {
     super(value);
     if (value === 0) {
@@ -142,7 +142,7 @@ class NonZeroFloat extends Float {
   }
 }
 
-class NonPositiveFloat extends Float {
+export class NonPositiveFloat extends Float {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -151,7 +151,7 @@ class NonPositiveFloat extends Float {
   }
 }
 
-class NonNegativeFloat extends Float {
+export class NonNegativeFloat extends Float {
   constructor(value: number) {
     super(value);
     if (value < 0) {
@@ -160,23 +160,29 @@ class NonNegativeFloat extends Float {
   }
 }
 
-export {
-  Integer,
-  Float,
-  PositiveNumber,
-  NegativeNumber,
-  PositiveInteger,
-  NegativeInteger,
-  PositiveFloat,
-  NegativeFloat,
-  Zero,
-  NonZero,
-  NonPositive,
-  NonNegative,
-  NonZeroInteger,
-  NonPositiveInteger,
-  NonNegativeInteger,
-  NonZeroFloat,
-  NonPositiveFloat,
-  NonNegativeFloat,
-};
+export class RangeNumber extends Number {
+  constructor(value: number, min: number, max: number) {
+    super(value);
+    if (value < min || value > max) {
+      throw new Error(`Value must be between ${min} and ${max}`);
+    }
+  }
+}
+
+export class RangeInteger extends Integer {
+  constructor(value: number, min: number, max: number) {
+    super(value);
+    if (value < min || value > max) {
+      throw new Error(`Value must be between ${min} and ${max}`);
+    }
+  }
+}
+
+export class RangeFloat extends Float {
+  constructor(value: number, min: number, max: number) {
+    super(value);
+    if (value < min || value > max) {
+      throw new Error(`Value must be between ${min} and ${max}`);
+    }
+  }
+}

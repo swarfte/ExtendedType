@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.NonNegativeFloat = exports.NonPositiveFloat = exports.NonZeroFloat = exports.NonNegativeInteger = exports.NonPositiveInteger = exports.NonZeroInteger = exports.NonNegative = exports.NonPositive = exports.NonZero = exports.Zero = exports.NegativeFloat = exports.PositiveFloat = exports.NegativeInteger = exports.PositiveInteger = exports.NegativeNumber = exports.PositiveNumber = exports.Float = exports.Integer = void 0;
+exports.RangeFloat = exports.RangeInteger = exports.RangeNumber = exports.NonNegativeFloat = exports.NonPositiveFloat = exports.NonZeroFloat = exports.NonNegativeInteger = exports.NonPositiveInteger = exports.NonZeroInteger = exports.NonNegative = exports.NonPositive = exports.NonZero = exports.Zero = exports.NegativeFloat = exports.PositiveFloat = exports.NegativeInteger = exports.PositiveInteger = exports.NegativeNumber = exports.PositiveNumber = exports.Float = exports.Integer = void 0;
 class Integer extends Number {
     constructor(value) {
         super(value);
@@ -163,4 +163,31 @@ class NonNegativeFloat extends Float {
     }
 }
 exports.NonNegativeFloat = NonNegativeFloat;
+class RangeNumber extends Number {
+    constructor(value, min, max) {
+        super(value);
+        if (value < min || value > max) {
+            throw new Error(`Value must be between ${min} and ${max}`);
+        }
+    }
+}
+exports.RangeNumber = RangeNumber;
+class RangeInteger extends Integer {
+    constructor(value, min, max) {
+        super(value);
+        if (value < min || value > max) {
+            throw new Error(`Value must be between ${min} and ${max}`);
+        }
+    }
+}
+exports.RangeInteger = RangeInteger;
+class RangeFloat extends Float {
+    constructor(value, min, max) {
+        super(value);
+        if (value < min || value > max) {
+            throw new Error(`Value must be between ${min} and ${max}`);
+        }
+    }
+}
+exports.RangeFloat = RangeFloat;
 //# sourceMappingURL=number.js.map
