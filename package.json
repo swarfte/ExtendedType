@@ -1,9 +1,19 @@
 {
-  "name": "extendedtype",
+  "name": "extended-type",
   "version": "1.0.0",
   "description": "Expand Typescript native data types",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swarfte/ExtendedType.git"
+  },
+  "keywords": [
+    "typescript",
+    "type",
+    "extended",
+    "number"
+  ],
   "files": [
     "dist"
   ],
