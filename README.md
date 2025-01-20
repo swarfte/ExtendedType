@@ -1,2 +1,2 @@
-# TypeLimit
+# ExtendedType
 Expand Typescript native data types
