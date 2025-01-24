@@ -34,6 +34,24 @@ export class NegativeNumber extends Number {
   }
 }
 
+export class OddInteger extends Integer {
+  constructor(value: number) {
+    super(value);
+    if (value % 2 === 0) {
+      throw new Error("Value must be odd");
+    }
+  }
+}
+
+export class EvenInteger extends Integer {
+  constructor(value: number) {
+    super(value);
+    if (value % 2 !== 0) {
+      throw new Error("Value must be even");
+    }
+  }
+}
+
 export class PositiveInteger extends Integer {
   constructor(value: number) {
     super(value);
@@ -44,6 +62,42 @@ export class PositiveInteger extends Integer {
 }
 
 export class NegativeInteger extends Integer {
+  constructor(value: number) {
+    super(value);
+    if (value > 0) {
+      throw new Error("Value must be negative");
+    }
+  }
+}
+
+export class PositiveOddInteger extends OddInteger {
+  constructor(value: number) {
+    super(value);
+    if (value < 0) {
+      throw new Error("Value must be positive");
+    }
+  }
+}
+
+export class NegativeOddInteger extends OddInteger {
+  constructor(value: number) {
+    super(value);
+    if (value > 0) {
+      throw new Error("Value must be negative");
+    }
+  }
+}
+
+export class PositiveEvenInteger extends EvenInteger {
+  constructor(value: number) {
+    super(value);
+    if (value < 0) {
+      throw new Error("Value must be positive");
+    }
+  }
+}
+
+export class NegativeEvenInteger extends EvenInteger {
   constructor(value: number) {
     super(value);
     if (value > 0) {
@@ -170,6 +224,24 @@ export class RangeNumber extends Number {
 }
 
 export class RangeInteger extends Integer {
+  constructor(value: number, min: number, max: number) {
+    super(value);
+    if (value < min || value > max) {
+      throw new Error(`Value must be between ${min} and ${max}`);
+    }
+  }
+}
+
+export class RangeOddInteger extends OddInteger {
+  constructor(value: number, min: number, max: number) {
+    super(value);
+    if (value < min || value > max) {
+      throw new Error(`Value must be between ${min} and ${max}`);
+    }
+  }
+}
+
+export class RangeEvenInteger extends EvenInteger {
   constructor(value: number, min: number, max: number) {
     super(value);
     if (value < min || value > max) {

@@ -10,10 +10,28 @@ export declare class PositiveNumber extends Number {
 export declare class NegativeNumber extends Number {
     constructor(value: number);
 }
+export declare class OddInteger extends Integer {
+    constructor(value: number);
+}
+export declare class EvenInteger extends Integer {
+    constructor(value: number);
+}
 export declare class PositiveInteger extends Integer {
     constructor(value: number);
 }
 export declare class NegativeInteger extends Integer {
+    constructor(value: number);
+}
+export declare class PositiveOddInteger extends OddInteger {
+    constructor(value: number);
+}
+export declare class NegativeOddInteger extends OddInteger {
+    constructor(value: number);
+}
+export declare class PositiveEvenInteger extends EvenInteger {
+    constructor(value: number);
+}
+export declare class NegativeEvenInteger extends EvenInteger {
     constructor(value: number);
 }
 export declare class PositiveFloat extends Float {
@@ -56,6 +74,12 @@ export declare class RangeNumber extends Number {
     constructor(value: number, min: number, max: number);
 }
 export declare class RangeInteger extends Integer {
+    constructor(value: number, min: number, max: number);
+}
+export declare class RangeOddInteger extends OddInteger {
+    constructor(value: number, min: number, max: number);
+}
+export declare class RangeEvenInteger extends EvenInteger {
     constructor(value: number, min: number, max: number);
 }
 export declare class RangeFloat extends Float {

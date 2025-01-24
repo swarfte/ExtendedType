@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.RangeFloat = exports.RangeInteger = exports.RangeNumber = exports.NonNegativeFloat = exports.NonPositiveFloat = exports.NonZeroFloat = exports.NonNegativeInteger = exports.NonPositiveInteger = exports.NonZeroInteger = exports.NonNegative = exports.NonPositive = exports.NonZero = exports.Zero = exports.NegativeFloat = exports.PositiveFloat = exports.NegativeInteger = exports.PositiveInteger = exports.NegativeNumber = exports.PositiveNumber = exports.Float = exports.Integer = void 0;
+exports.RangeFloat = exports.RangeEvenInteger = exports.RangeOddInteger = exports.RangeInteger = exports.RangeNumber = exports.NonNegativeFloat = exports.NonPositiveFloat = exports.NonZeroFloat = exports.NonNegativeInteger = exports.NonPositiveInteger = exports.NonZeroInteger = exports.NonNegative = exports.NonPositive = exports.NonZero = exports.Zero = exports.NegativeFloat = exports.PositiveFloat = exports.NegativeEvenInteger = exports.PositiveEvenInteger = exports.NegativeOddInteger = exports.PositiveOddInteger = exports.NegativeInteger = exports.PositiveInteger = exports.EvenInteger = exports.OddInteger = exports.NegativeNumber = exports.PositiveNumber = exports.Float = exports.Integer = void 0;
 class Integer extends Number {
     constructor(value) {
         super(value);
@@ -37,6 +37,24 @@ class NegativeNumber extends Number {
     }
 }
 exports.NegativeNumber = NegativeNumber;
+class OddInteger extends Integer {
+    constructor(value) {
+        super(value);
+        if (value % 2 === 0) {
+            throw new Error("Value must be odd");
+        }
+    }
+}
+exports.OddInteger = OddInteger;
+class EvenInteger extends Integer {
+    constructor(value) {
+        super(value);
+        if (value % 2 !== 0) {
+            throw new Error("Value must be even");
+        }
+    }
+}
+exports.EvenInteger = EvenInteger;
 class PositiveInteger extends Integer {
     constructor(value) {
         super(value);
@@ -55,6 +73,42 @@ class NegativeInteger extends Integer {
     }
 }
 exports.NegativeInteger = NegativeInteger;
+class PositiveOddInteger extends OddInteger {
+    constructor(value) {
+        super(value);
+        if (value < 0) {
+            throw new Error("Value must be positive");
+        }
+    }
+}
+exports.PositiveOddInteger = PositiveOddInteger;
+class NegativeOddInteger extends OddInteger {
+    constructor(value) {
+        super(value);
+        if (value > 0) {
+            throw new Error("Value must be negative");
+        }
+    }
+}
+exports.NegativeOddInteger = NegativeOddInteger;
+class PositiveEvenInteger extends EvenInteger {
+    constructor(value) {
+        super(value);
+        if (value < 0) {
+            throw new Error("Value must be positive");
+        }
+    }
+}
+exports.PositiveEvenInteger = PositiveEvenInteger;
+class NegativeEvenInteger extends EvenInteger {
+    constructor(value) {
+        super(value);
+        if (value > 0) {
+            throw new Error("Value must be negative");
+        }
+    }
+}
+exports.NegativeEvenInteger = NegativeEvenInteger;
 class PositiveFloat extends Float {
     constructor(value) {
         super(value);
@@ -181,6 +235,24 @@ class RangeInteger extends Integer {
     }
 }
 exports.RangeInteger = RangeInteger;
+class RangeOddInteger extends OddInteger {
+    constructor(value, min, max) {
+        super(value);
+        if (value < min || value > max) {
+            throw new Error(`Value must be between ${min} and ${max}`);
+        }
+    }
+}
+exports.RangeOddInteger = RangeOddInteger;
+class RangeEvenInteger extends EvenInteger {
+    constructor(value, min, max) {
+        super(value);
+        if (value < min || value > max) {
+            throw new Error(`Value must be between ${min} and ${max}`);
+        }
+    }
+}
+exports.RangeEvenInteger = RangeEvenInteger;
 class RangeFloat extends Float {
     constructor(value, min, max) {
         super(value);

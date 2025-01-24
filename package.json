@@ -1,5 +1,5 @@
 {
-  "name": "extended-type",
+  "name": "@swarfte/extended-type",
   "version": "1.0.0",
   "description": "Expand Typescript native data types",
   "main": "dist/index.js",
